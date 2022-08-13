@@ -1,6 +1,7 @@
-import {app} from 'electron';
+import {app, globalShortcut} from 'electron';
 import './security-restrictions';
 import {restoreOrCreateWindow} from '/@/mainWindow';
+import state from '../../states';
 
 /**
  * Prevent electron from running multiple instances.
@@ -36,6 +37,14 @@ app.on('activate', restoreOrCreateWindow);
  */
 app
   .whenReady()
+  .then(() => {
+    // globalShortcut.register('Space', () => {
+
+    //   console.log("Okd");
+      
+    //   state.commit('SET_TIMER_PLAYING', !state.state.timer.playing)
+    // })
+  })
   .then(restoreOrCreateWindow)
   .catch(e => console.error('Failed create window:', e));
 
