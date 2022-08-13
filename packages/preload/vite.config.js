@@ -1,4 +1,4 @@
-import {chrome} from '../../.electron-vendors.cache.json';
+import {chrome, node} from '../../.electron-vendors.cache.json';
 import {preload} from 'unplugin-auto-expose';
 
 const PACKAGE_ROOT = __dirname;
@@ -14,7 +14,7 @@ const config = {
   build: {
     ssr: true,
     sourcemap: 'inline',
-    target: `chrome${chrome}`,
+    target: `node${node}`,
     outDir: 'dist',
     assetsDir: '.',
     minify: process.env.MODE !== 'development',
@@ -26,6 +26,8 @@ const config = {
       output: {
         entryFileNames: '[name].cjs',
       },
+      external: [
+      ]
     },
     emptyOutDir: true,
     reportCompressedSize: false,

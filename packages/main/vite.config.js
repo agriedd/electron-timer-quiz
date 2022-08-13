@@ -16,6 +16,9 @@ const config = {
       '/@/': join(PACKAGE_ROOT, 'src') + '/',
     },
   },
+  ssr: {
+    noExternal: ['file-type'],
+  },
   build: {
     ssr: true,
     sourcemap: 'inline',

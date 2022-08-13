@@ -25,16 +25,16 @@ const config = {
       strict: true,
     },
   },
-  ssr: {
-    enabled: true,
-    target: 'node',
-  },
+  // ssr: {
+  //   enabled: true,
+  //   target: 'node',
+  // },
   build: {
     sourcemap: true,
     target: `chrome${chrome}`,
     outDir: 'dist',
     assetsDir: '.',
-    ssr: true,
+    // ssr: true,
     rollupOptions: {
       input: join(PACKAGE_ROOT, 'index.html'),
     },

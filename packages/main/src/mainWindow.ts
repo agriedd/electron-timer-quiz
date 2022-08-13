@@ -1,18 +1,36 @@
-import {app, BrowserWindow} from 'electron';
+import {app, BrowserWindow, Menu} from 'electron';
 import {join} from 'path';
 import {URL} from 'url';
+import { serverApi } from './api/ServerApi';
 
 async function createWindow() {
   const browserWindow = new BrowserWindow({
     show: false, // Use the 'ready-to-show' event to show the instantiated BrowserWindow.
     webPreferences: {
-      nodeIntegration: false,
+      nodeIntegration: true,
       contextIsolation: true,
       sandbox: false, // Sandbox disabled because the demo of preload script depend on the Node.js api
       webviewTag: false, // The webview tag is not recommended. Consider alternatives like an iframe or Electron's BrowserView. @see https://www.electronjs.org/docs/latest/api/webview-tag#warning
       preload: join(app.getAppPath(), 'packages/preload/dist/index.cjs'),
     },
   });
+
+  // const menu = Menu.buildFromTemplate([
+  //   {
+  //     label: app.name,
+  //     submenu: [
+  //     {
+  //       click: () => browserWindow.webContents.send('update-counter', 1),
+  //       label: 'Increment',
+  //     },
+  //     {
+  //       click: () => browserWindow.webContents.send('update-counter', -1),
+  //       label: 'Decrement',
+  //     }
+  //     ]
+  //   }
+  // ])
+  // Menu.setApplicationMenu(menu)
 
   /**
    * If the 'show' property of the BrowserWindow's constructor is omitted from the initialization options,
@@ -23,6 +41,9 @@ async function createWindow() {
    * @see https://github.com/electron/electron/issues/25012 for the afford mentioned issue.
    */
   browserWindow.on('ready-to-show', () => {
+
+    serverApi(browserWindow)
+
     browserWindow?.show();
 
     if (import.meta.env.DEV) {

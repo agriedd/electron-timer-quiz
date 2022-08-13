@@ -1,4 +1,4 @@
-import {app, globalShortcut} from 'electron';
+import {app, BrowserWindow, globalShortcut, ipcMain, IpcMainEvent} from 'electron';
 import './security-restrictions';
 import {restoreOrCreateWindow} from '/@/mainWindow';
 import state from '../../states';
@@ -44,6 +44,15 @@ app
       
     //   state.commit('SET_TIMER_PLAYING', !state.state.timer.playing)
     // })
+
+    ipcMain.on('set-title', (event: IpcMainEvent, title: string) => {
+      const webContent = event.sender
+      const win = BrowserWindow.fromWebContents(webContent)
+      win?.setTitle(title)
+    })
+    ipcMain.on('counter-value', (_event, value) => {
+      console.log(value) // will print value to Node console
+    })
   })
   .then(restoreOrCreateWindow)
   .catch(e => console.error('Failed create window:', e));
