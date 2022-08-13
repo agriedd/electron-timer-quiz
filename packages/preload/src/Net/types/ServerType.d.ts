@@ -1,4 +1,4 @@
 export type ServerTCPProps = {
-	host?: string,
-	port: number
-}
+  host?: string;
+  port: number;
+};

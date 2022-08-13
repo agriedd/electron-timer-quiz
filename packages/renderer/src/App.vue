@@ -28,19 +28,19 @@ const msg = ref('');
 const counter = ref(0);
 
 const startServer = async () => {
-  window.electronAPI.setTitle("Okd")
-}
+  window.electronAPI.setTitle('Okd');
+};
 
 window.electronAPI.handleCounter((event: any, value: number) => {
   console.log(value);
-  
-  const oldValue = Number(counter.value)
-  const newValue = oldValue + value
-  counter.value = newValue
-  event.sender.send('counter-value', newValue)
-})
 
-startServer()
+  const oldValue = Number(counter.value);
+  const newValue = oldValue + value;
+  counter.value = newValue;
+  event.sender.send('counter-value', newValue);
+});
+
+startServer();
 
 onMounted(() => {
   window.addEventListener('keyup', handleKeyPress, false);
@@ -60,7 +60,6 @@ onUnmounted(() => {
   </fieldset>
   <fieldset class="border border-solid border-gray-300 p-3">
     <legend class="text-sm">Client</legend>
-
   </fieldset>
   <fieldset class="border border-solid border-gray-300 p-3">
     <legend class="text-sm">Timer Display {{ counter }}</legend>

@@ -1,11 +1,11 @@
-import { ServerTCP } from "../Net/Server/ServerTCP";
-import { ServerTCPProps } from "../Net/types/ServerType";
+import {ServerTCP} from '../Net/Server/ServerTCP';
+import {ServerTCPProps} from '../Net/types/ServerType';
 
-const createServer = ({port}: ServerTCPProps): ServerTCP =>{
-	return new ServerTCP({ port })
-}
+const createServer = ({port}: ServerTCPProps): ServerTCP => {
+  return new ServerTCP({port});
+};
 
 export const net = {
-	createServer,
-	serverTCP: ServerTCP
-}
+  createServer,
+  serverTCP: ServerTCP,
+};

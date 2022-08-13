@@ -44,13 +44,13 @@ app
     // })
 
     ipcMain.on('set-title', (event: IpcMainEvent, title: string) => {
-      const webContent = event.sender
-      const win = BrowserWindow.fromWebContents(webContent)
-      win?.setTitle(title)
-    })
+      const webContent = event.sender;
+      const win = BrowserWindow.fromWebContents(webContent);
+      win?.setTitle(title);
+    });
     ipcMain.on('counter-value', (_event, value) => {
-      console.log(value) // will print value to Node console
-    })
+      console.log(value); // will print value to Node console
+    });
   })
   .then(restoreOrCreateWindow)
   .catch(e => console.error('Failed create window:', e));

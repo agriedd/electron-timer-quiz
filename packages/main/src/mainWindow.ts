@@ -1,7 +1,7 @@
 import {app, BrowserWindow, Menu} from 'electron';
 import {join} from 'path';
 import {URL} from 'url';
-import { serverApi } from './api/ServerApi';
+import {serverApi} from './api/ServerApi';
 
 async function createWindow() {
   const browserWindow = new BrowserWindow({
@@ -41,8 +41,7 @@ async function createWindow() {
    * @see https://github.com/electron/electron/issues/25012 for the afford mentioned issue.
    */
   browserWindow.on('ready-to-show', () => {
-
-    serverApi(browserWindow)
+    serverApi(browserWindow);
 
     browserWindow?.show();
 

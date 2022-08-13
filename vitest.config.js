@@ -18,11 +18,11 @@ const config = {
     testTimeout: 30_000,
     hookTimeout: 30_000,
   },
-	plugins: {
-		electronBuilder: {
-			nodeIntegration: true
-		}
-	}
+  plugins: {
+    electronBuilder: {
+      nodeIntegration: true,
+    },
+  },
 };
 
 export default config;

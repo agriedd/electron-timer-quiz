@@ -1,9 +1,9 @@
-import { apiProps } from "./ApiProps"
+import {apiProps} from './ApiProps';
 
-export {}
+export {};
 
 declare global {
-	export interface Window {
-		api: any
-	}
+  export interface Window {
+    api: any;
+  }
 }

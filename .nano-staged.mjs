@@ -1,8 +1,8 @@
 import {resolve, sep} from 'path';
 
 export default {
-  '*.{md}': (files) => {
-    return 'eslint --cache --fix'
+  '*.{md}': files => {
+    return 'eslint --cache --fix';
   },
   // '*.{js,mjs,cjs,ts,mts,cts,vue}': (files) => {
   //   console.log(files);
