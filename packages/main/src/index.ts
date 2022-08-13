@@ -39,9 +39,7 @@ app
   .whenReady()
   .then(() => {
     // globalShortcut.register('Space', () => {
-
     //   console.log("Okd");
-      
     //   state.commit('SET_TIMER_PLAYING', !state.state.timer.playing)
     // })
   })

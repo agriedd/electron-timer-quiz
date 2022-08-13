@@ -1,9 +1,9 @@
 import {resolve, sep} from 'path';
 
 export default {
-  '*.{js,mjs,cjs,ts,mts,cts,vue}': (files) => {
+  '*.{js,mjs,cjs,ts,mts,cts,vue}': files => {
     console.log(files);
-    return 'eslint --cache --fix'
+    return 'eslint --cache --fix';
   },
 
   /**
@@ -12,7 +12,6 @@ export default {
    * @return {string[]}
    */
   '{package-lock.json,packages/**/{*.ts,*.vue,tsconfig.json}}': ({filenames}) => {
-
     // if dependencies was changed run type checking for all packages
     if (filenames.some(f => f.endsWith('package-lock.json'))) {
       return ['npm run typecheck --if-present'];

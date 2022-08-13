@@ -3,22 +3,22 @@ import ReactiveCounter from '/@/components/ReactiveCounter.vue';
 import ReactiveHash from '/@/components/ReactiveHash.vue';
 import ElectronVersions from '/@/components/ElectronVersions.vue';
 import TimerDisplay from './components/TimerDisplay.vue';
-import { onMounted, onUnmounted } from 'vue';
-import { useStore } from 'vuex';
+import {onMounted, onUnmounted} from 'vue';
+import {useStore} from 'vuex';
 
 const store = useStore();
 
 const handleKeyPress = (event: KeyboardEvent) => {
-  if(event.keyCode === 32 && event.target == document.body){
+  if (event.keyCode === 32 && event.target == document.body) {
     store.commit('SET_TIMER_PLAYING', !store.state.timer.playing);
-    event.preventDefault(); 
+    event.preventDefault();
     return false;
   }
 };
 
-function handleKeyDown (event: KeyboardEvent) {
-  if(event.keyCode === 32 && event.target == document.body){
-    event.preventDefault(); 
+function handleKeyDown(event: KeyboardEvent) {
+  if (event.keyCode === 32 && event.target == document.body) {
+    event.preventDefault();
     return false;
   }
 }
@@ -32,8 +32,6 @@ onUnmounted(() => {
   window.removeEventListener('keyup', handleKeyPress, false);
   window.removeEventListener('keydown', handleKeyDown, false);
 });
-
-
 </script>
 
 <template>

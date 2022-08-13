@@ -1,3 +1,3 @@
 export type TimerState = {
-	playing: boolean
-}
+  playing: boolean;
+};
