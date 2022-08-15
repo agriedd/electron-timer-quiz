@@ -16,7 +16,7 @@ async function createWindow() {
       preload: join(app.getAppPath(), 'packages/preload/dist/index.cjs'),
     },
   });
-  serverApi(browserWindow)
+  serverApi(browserWindow);
 
   // const menu = Menu.buildFromTemplate([
   //   {
@@ -44,7 +44,6 @@ async function createWindow() {
    * @see https://github.com/electron/electron/issues/25012 for the afford mentioned issue.
    */
   browserWindow.on('ready-to-show', () => {
-
     browserWindow?.show();
 
     if (import.meta.env.DEV) {

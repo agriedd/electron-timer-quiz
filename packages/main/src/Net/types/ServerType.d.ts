@@ -11,8 +11,8 @@ export interface ServerCreateReponse {
 }
 
 export type ResponseToRenderer = {
-	message?: string,
-	status: boolean,
-	data?: any,
-	error?: any
-}
+  message?: string;
+  status: boolean;
+  data?: any;
+  error?: any;
+};

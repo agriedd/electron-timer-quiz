@@ -31,7 +31,7 @@ const counter = ref(0);
 
 // window.electronAPI.handleCounter((event: any, value: number) => {
 //   console.log(value);
-  
+
 //   const oldValue = Number(counter.value)
 //   const newValue = oldValue + value
 //   counter.value = newValue

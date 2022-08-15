@@ -3,9 +3,9 @@ import store from '../../states';
 import App from '/@/App.vue';
 
 declare global {
-	interface Window {
-		electronAPI: any;
-	}
+  interface Window {
+    electronAPI: any;
+  }
 }
 
 const app = createApp(App);
