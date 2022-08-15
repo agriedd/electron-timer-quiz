@@ -5,6 +5,8 @@ import {serverApi} from './api/ServerApi';
 
 async function createWindow() {
   const browserWindow = new BrowserWindow({
+    width: 1200,
+    height: 600,
     show: false, // Use the 'ready-to-show' event to show the instantiated BrowserWindow.
     webPreferences: {
       nodeIntegration: true,
@@ -14,6 +16,7 @@ async function createWindow() {
       preload: join(app.getAppPath(), 'packages/preload/dist/index.cjs'),
     },
   });
+  serverApi(browserWindow)
 
   // const menu = Menu.buildFromTemplate([
   //   {
@@ -41,7 +44,6 @@ async function createWindow() {
    * @see https://github.com/electron/electron/issues/25012 for the afford mentioned issue.
    */
   browserWindow.on('ready-to-show', () => {
-    serverApi(browserWindow);
 
     browserWindow?.show();
 

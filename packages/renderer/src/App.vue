@@ -1,10 +1,8 @@
 <script lang="ts" setup>
-import ReactiveCounter from '/@/components/ReactiveCounter.vue';
-import ReactiveHash from '/@/components/ReactiveHash.vue';
-import ElectronVersions from '/@/components/ElectronVersions.vue';
 import TimerDisplay from './components/TimerDisplay.vue';
-import {onMounted, onUnmounted} from 'vue';
+import {onMounted, onUnmounted, ref} from 'vue';
 import {useStore} from 'vuex';
+import ServerMenu from './components/Server/ServerMenu.vue';
 
 const store = useStore();
 
@@ -27,20 +25,18 @@ const port = ref(3500);
 const msg = ref('');
 const counter = ref(0);
 
-const startServer = async () => {
-  window.electronAPI.setTitle('Okd');
-};
+// const startServer = async () => {
+//   window.electronAPI.setTitle("Okd")
+// }
 
-window.electronAPI.handleCounter((event: any, value: number) => {
-  console.log(value);
-
-  const oldValue = Number(counter.value);
-  const newValue = oldValue + value;
-  counter.value = newValue;
-  event.sender.send('counter-value', newValue);
-});
-
-startServer();
+// window.electronAPI.handleCounter((event: any, value: number) => {
+//   console.log(value);
+  
+//   const oldValue = Number(counter.value)
+//   const newValue = oldValue + value
+//   counter.value = newValue
+//   event.sender.send('counter-value', newValue)
+// })
 
 onMounted(() => {
   window.addEventListener('keyup', handleKeyPress, false);
@@ -65,18 +61,6 @@ onUnmounted(() => {
     <legend class="text-sm">Timer Display {{ counter }}</legend>
     <timer-display />
   </fieldset>
-  <!-- <fieldset class="border border-solid border-gray-300 p-3">
-    <legend class="text-sm">Test Vue Reactivity</legend>
-    <reactive-counter />
-  </fieldset>
-  <fieldset class="border border-solid border-gray-300 p-3">
-    <legend class="text-sm">Test Node.js API</legend>
-    <reactive-hash />
-  </fieldset>
-  <fieldset class="border border-solid border-gray-300 p-3">
-    <legend class="text-sm">Environment</legend>
-    <electron-versions />
-  </fieldset> -->
 </template>
 
 <style>
