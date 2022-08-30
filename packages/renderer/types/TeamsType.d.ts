@@ -1,13 +1,13 @@
 export interface Point {
-	time: number,
-	amount: number,
+  time: number;
+  amount: number;
 }
 
-export type PointHistory = Point[]
+export type PointHistory = Point[];
 
 export interface Team {
-	id: number,
-	name: string,
-	point: number,
-	history: PointHistory
+  id: number;
+  name: string;
+  point: number;
+  history: PointHistory;
 }

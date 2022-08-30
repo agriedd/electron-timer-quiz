@@ -50,7 +50,10 @@ onUnmounted(() => {
       <legend class="text-sm">Timer Display</legend>
       <timer-display />
     </fieldset>
-    <fieldset class="border border-solid border-gray-300 p-3" style="min-width: 400px; max-width: 400px">
+    <fieldset
+      class="border border-solid border-gray-300 p-3"
+      style="min-width: 400px; max-width: 400px"
+    >
       <legend class="text-sm">Tim</legend>
       <team-list></team-list>
     </fieldset>
