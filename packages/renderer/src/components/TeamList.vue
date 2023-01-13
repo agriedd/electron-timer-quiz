@@ -23,7 +23,7 @@ const addTeam = async () => {
     history: [],
     point: 0,
     id: Date.now(),
-    button_id: team_button_id.value
+    button_id: team_button_id.value,
   }).catch((e: any) => {
     error_message.value = e;
   });

@@ -1,7 +1,7 @@
 export enum ConnectionTypeEnum {
-	Cable = "serial",
-	Wireless = "socket",
-	Both = "both"
+  Cable = 'serial',
+  Wireless = 'socket',
+  Both = 'both',
 }
 
-export type ConnectionType = ConnectionType
+export type ConnectionType = ConnectionType;

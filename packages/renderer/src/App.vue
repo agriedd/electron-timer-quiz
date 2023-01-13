@@ -59,8 +59,7 @@ onUnmounted(() => {
       <team-list></team-list>
     </fieldset>
     <div class="w-full">
-      <fieldset
-        class="border border-solid border-gray-300 p-3 m-1">
+      <fieldset class="border border-solid border-gray-300 p-3 m-1">
         <legend class="text-sm">Sambungan</legend>
         <connection-type></connection-type>
       </fieldset>
