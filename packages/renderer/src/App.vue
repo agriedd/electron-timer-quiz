@@ -4,6 +4,7 @@ import {onMounted, onUnmounted, ref} from 'vue';
 import {useStore} from 'vuex';
 import ServerMenu from './components/Server/ServerMenu.vue';
 import TeamList from './components/TeamList.vue';
+import ConnectionType from './components/Connection/ConnectionType.vue';
 
 const store = useStore();
 
@@ -45,18 +46,25 @@ onUnmounted(() => {
   <!-- <fieldset class="border border-solid border-gray-300 p-3">
     <legend class="text-sm">Client</legend>
   </fieldset> -->
-  <div class="flex w-full">
-    <fieldset class="border border-solid border-gray-300 p-3 flex-1">
+  <div class="flex w-full flex-wrap">
+    <fieldset class="border border-solid border-gray-300 p-3 flex-1 m-1">
       <legend class="text-sm">Timer Display</legend>
       <timer-display />
     </fieldset>
     <fieldset
-      class="border border-solid border-gray-300 p-3"
+      class="border border-solid border-gray-300 p-3 m-1"
       style="min-width: 400px; max-width: 400px"
     >
       <legend class="text-sm">Tim</legend>
       <team-list></team-list>
     </fieldset>
+    <div class="w-full">
+      <fieldset
+        class="border border-solid border-gray-300 p-3 m-1">
+        <legend class="text-sm">Sambungan</legend>
+        <connection-type></connection-type>
+      </fieldset>
+    </div>
   </div>
 </template>
 

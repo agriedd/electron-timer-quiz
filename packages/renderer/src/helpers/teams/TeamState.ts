@@ -28,6 +28,7 @@ export const pushTeam = async (team: Team): Promise<Team | string> => {
       return rejects('Tim sudah ada 🥲');
     }
     if (team.name.trim().length <= 0) return rejects('Nama tim tidak boleh kosong 🙃');
+    if (!team.button_id || team.button_id.length <= 0) return rejects('Wajib button id 🥲');
     teams.push(team);
     return resolve(team);
   });

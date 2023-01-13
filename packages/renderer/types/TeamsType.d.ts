@@ -10,4 +10,5 @@ export interface Team {
   name: string;
   point: number;
   history: PointHistory;
+  button_id: null|string;
 }

@@ -14,6 +14,7 @@ import TeamItem from './TeamList/TeamItem.vue';
 
 const foo = ref('bar');
 const team_name = ref<string>('');
+const team_button_id = ref<string>('');
 const error_message = ref<string | null>(null);
 
 const addTeam = async () => {
@@ -22,6 +23,7 @@ const addTeam = async () => {
     history: [],
     point: 0,
     id: Date.now(),
+    button_id: team_button_id.value
   }).catch((e: any) => {
     error_message.value = e;
   });
@@ -57,6 +59,15 @@ const increaseTeamPoint = (item: Team) => {
             class="px-3 py-2 w-full relative"
             placeholder="Nama TIM"
             v-model="team_name"
+            @keydown="clearErrorMessage"
+          />
+        </fieldset>
+        <fieldset class="border border-solid border-gray-300 p-0">
+          <legend class="text-sm">ID Tombol</legend>
+          <input
+            class="px-3 py-2 w-full relative"
+            placeholder="ID Tombol"
+            v-model="team_button_id"
             @keydown="clearErrorMessage"
           />
         </fieldset>
